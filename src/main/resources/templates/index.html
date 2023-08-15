@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Spring Boot Session Example</title>
+</head>
+<body>
+<div>
+  <form th:action="@{/setLang}" method="GET">
+    <div>
+      <label>Language</label>
+      <select name="preferredLang">
+        <option selected="true" value="English">English</option>
+        <option value="German">German</option>
+        <option value="Ukrainian">Ukrainian</option>
+      </select>
+    </div>
+    <div>
+      <input type="submit" value="Save" />
+    </div>
+  </form>
+</div>
+<div>
+  <h2>Preferred Language</h2>
+  <span th:text="${preferredLang}" />
+</div>
+<div>
+  <h2>Session ID</h2>
+  Current Session ID is <span th:text="${sessionId}" />
+</div>
+<div>
+  <form th:action="@{/destroy}" method="post">
+    <input type="submit" value="Destroy Session" />
+  </form>
+</div>
+</body>
+</html>
